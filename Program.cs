@@ -34,7 +34,7 @@ do
 {
     // Menylista
     Console.Clear();
-    Console.WriteLine("Välj meny \n1: Kontosaldon \n2: Kontoinformation \n3: Nytt konto \n4: Avsluta konto \n5: Insättning \n6: Uttag \n\nAvsluta med x \n");
+    Console.WriteLine("Välj meny \n1: Lista på kontosaldon \n2: Kontoinformation \n3: Nytt konto \n4: Avsluta konto \n5: Insättning på konto \n6: Uttag på konto \n\nAvsluta med x \n");
     menuSelection = Console.ReadLine();
     Console.WriteLine($"Du har valt: {menuSelection}\n");
 
