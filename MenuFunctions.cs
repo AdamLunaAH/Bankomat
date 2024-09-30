@@ -10,7 +10,7 @@ namespace Bankomat
     {
         public static void Pause()
         {
-            Console.WriteLine("Tryck enter för att komma till menyn");
+            Console.WriteLine("\nTryck enter för att komma till menyn");
             Console.ReadLine();
         }
     }
