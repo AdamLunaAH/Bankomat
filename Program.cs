@@ -1,84 +1,94 @@
 ﻿using Bankomat;
 
 
-Int32[] accountNr = new Int32[10];
+int[] accountNr = new Int32[10];
 accountNr[0] = 1111;
 accountNr[1] = 2222;
 accountNr[2] = 3333;
 accountNr[5] = 6666;
 
-Int32[] accountBalance = new Int32[10];
-accountBalance[0] = 100;
-accountBalance[1] = 200;
-accountBalance[2] = 300;
-accountBalance[5] = 600;
+decimal[] accountBalance = new decimal[10];
+accountBalance[0] = 100.3M;
+accountBalance[1] = 200.50M;
+accountBalance[2] = 300.23M;
+accountBalance[5] = 600M;
+
+DateTime[] accountTime = new DateTime[10];
+accountTime[0] = new DateTime(2024, 09, 30, 11, 16, 37);
+accountTime[1] = new DateTime(2024, 09, 30, 12, 16, 37);
+accountTime[2] = new DateTime(2024, 09, 30, 09, 16, 37);
+accountTime[5] = new DateTime(2024, 09, 29, 23, 16, 37);
 
 Console.WriteLine("");
 
 String menuSelection = "";
+
 do
 {
     Console.Clear();
 
-    Console.WriteLine("Välj meny \n1: Kontolista \n2: Lediga konton \n3: Nytt konto \n4: Ta bort konto \n5: Kontosaldo \n6: Uttag \n7: Insättnig \nAvsluta med x \n");
+
+   // DateTime time = DateTime.UtcNow;
+   // String time1 = time.ToString();
+   //DateTime ToLocal = time.ToLocalTime();
+   //Console.WriteLine($"{time} \n {ToLocal}");
+
+
+    //decimal a = decimal.MaxValue;
+    //decimal b = decimal.MinValue;
+    //Console.WriteLine(a);
+    //Console.WriteLine(b);
+
+
+
+
+    Console.WriteLine("Välj meny \n1: Kontosaldon \n2: Kontoinformation \n3: Nytt konto \n4: Avsluta konto \n5: Insättning \n6: Uttag \n\nAvsluta med x \n");
     menuSelection = Console.ReadLine();
     Console.WriteLine($"Du har valt: {menuSelection}\n");
 
-    // Kontolista
+    // Kontosaldon
     if (menuSelection == "1")
     {
-        BankomatFunctions.AccountList(accountNr);
+        BankomatFunctions.AccountBalance(accountNr, accountBalance);
         MenuFunctions.Pause();
     }
 
-    // Lediga konton
+    // Kontoinformation
     else if (menuSelection == "2")
     {
-        BankomatFunctions.EmptyAccounts(accountNr);
+        BankomatFunctions.AccountInfo(accountNr, accountBalance, accountTime);
         MenuFunctions.Pause();
     }
 
     // Nytt konto
     else if (menuSelection == "3")
     {
-        BankomatFunctions.NewAccount(accountNr);
+        BankomatFunctions.NewAccount(accountNr, accountBalance, accountTime);
         MenuFunctions.Pause();
 
     }
 
-    // Ta bort konto
+    // Avsluta konto
     else if (menuSelection == "4")
     {
-        BankomatFunctions.RemoveAccount(accountNr);
+        BankomatFunctions.RemoveAccount(accountNr, accountBalance, accountTime);
         MenuFunctions.Pause();
 
     }
 
-    // Kontosaldo
-    else if (menuSelection == "5")
-    {
-        BankomatFunctions.AccountBalance(accountNr, accountBalance);
-
-        MenuFunctions.Pause();
-    }
-    // Uttag
-    // Word key: wd = withdraw    bal = balance
-    else if (menuSelection == "6")
-    {
-        BankomatFunctions.AccountWithdraw(accountNr, accountBalance);
-        MenuFunctions.Pause();
-    }
     // Insättning
     // Word key: dep = deposit  bal = balance
-    else if (menuSelection == "7")
+    else if (menuSelection == "5")
     {
         BankomatFunctions.AccountDeposit(accountNr, accountBalance);
         MenuFunctions.Pause();
     }
 
-    else if (menuSelection == "8")
+    // Uttag
+    // Word key: wd = withdraw    bal = balance
+    else if (menuSelection == "6")
     {
-        Console.WriteLine("Visa kontosaldo");
+        BankomatFunctions.AccountWithdraw(accountNr, accountBalance);
         MenuFunctions.Pause();
     }
 
