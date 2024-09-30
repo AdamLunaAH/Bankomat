@@ -32,6 +32,7 @@ namespace Bankomat
             // Välj det konto som insättningen ska utföras på
             Console.WriteLine("Välj ID på det konto som insättning ska utföras:");
             String strDepBalId = Console.ReadLine();
+            
             // Validering av input
             if (!String.IsNullOrEmpty(strDepBalId) || !String.IsNullOrWhiteSpace(strDepBalId))
             {
@@ -42,9 +43,13 @@ namespace Bankomat
                 {
                     Console.WriteLine("Insättningen har inte ett giltigt kontoid");
                 }
+                else if (checkDepBalId == true && depBalId > accountNr.Length)
+                {
+                    Console.WriteLine("Insättningen har inte ett giltigt kontoid (Högre än array.length)");
+                }
                 else if (checkDepBalId == true && depBalId <= 0)
                 {
-                    Console.WriteLine("Insättningen har inte ett giltigt kontoid");
+                    Console.WriteLine("Insättningen har inte ett giltigt kontoid (lägre än array.length)");
                 }
                 else if (checkDepBalId == true && depBalId >= 1)
                 {
@@ -124,9 +129,13 @@ namespace Bankomat
                 {
                     Console.WriteLine("Uttaget har inte giltigt kontoid");
                 }
+                else if (checkWdBalId == true && wdBalId > accountNr.Length)
+                {
+                    Console.WriteLine("Uttag har inte ett giltigt kontoid (Högre än array.length)");
+                }
                 else if (checkWdBalId == true && wdBalId <= 0)
                 {
-                    Console.WriteLine("Uttaget har inte giltigt kontoid");
+                    Console.WriteLine("Uttaget har inte giltigt kontoid (lägre än array.length)");
                 }
                 else if (checkWdBalId == true && wdBalId >= 1)
                 {

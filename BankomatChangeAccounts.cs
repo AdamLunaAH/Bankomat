@@ -31,7 +31,7 @@ namespace Bankomat
 
                     // Id på första lediga plats
                     Console.WriteLine($"Kontoplats med id {i + 1} är tom");
-                    
+
                     // Kontonummer
                     Console.WriteLine("Kontonummer:");
                     String strAccountNr = Console.ReadLine();
@@ -75,8 +75,6 @@ namespace Bankomat
                     if (accountNrTaken == 0 && checkAccountBalance == true && (decimal.Round(intAccountBalance, 2) == intAccountBalance || decimal.Round(intAccountBalance, 1) == intAccountBalance || decimal.Round(intAccountBalance, 0) == intAccountBalance))
                     {
                         validCheck = true;
-
-
                     }
 
                     if (validCheck == true && intAccountBalance >= 0)
@@ -115,7 +113,7 @@ namespace Bankomat
         {
             Console.WriteLine("Ta bort konto\n");
             // Visar ett id på de aktiva kontonen som kan tas bort
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < accountNr.Length; i++)
             {
                 if (accountNr[i] == 0)
                 {
@@ -135,13 +133,28 @@ namespace Bankomat
             {
                 Int32 deleteId = Int32.Parse(strDeleteId) - 1;
 
-                // Nollställer det valda kontots data i arrayer
-                accountNr[deleteId] = 0;
-                accountBalance[deleteId] = 0;
-                accountTime[deleteId] = new DateTime(2000, 01, 01, 00, 00, 00);
 
 
-                Console.WriteLine($"Kontot med Id {strDeleteId} har tagits bort");
+                if (deleteId >= 0 && deleteId < accountNr.Length && accountNr[deleteId] == 0)
+                {
+                    Console.WriteLine("Kontot finns inte");
+                }
+                else if (deleteId >= 0 && deleteId < accountNr.Length)
+                {
+                    // Nollställer det valda kontots data i arrayer
+                    accountNr[deleteId] = 0;
+                    accountBalance[deleteId] = 0;
+                    accountTime[deleteId] = new DateTime(2000, 01, 01, 00, 00, 00);
+
+
+                    Console.WriteLine($"Kontot med Id {strDeleteId} har tagits bort");
+                }
+                else 
+                {
+                    Console.WriteLine("Kontot finns inte");
+                }
+
+
 
 
             }

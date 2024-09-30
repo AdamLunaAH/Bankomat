@@ -59,7 +59,7 @@ namespace Bankomat
             // Validering av input 
             bool accountIdCheck = int.TryParse(strAccountId, out int accountId);
 
-            if (accountIdCheck == true && accountId >= 1)
+            if (accountIdCheck == true && accountId < accountNr.Length && accountId >= 1)
             {
                 // Gör så att idet är den faktiska array idet
                 accountId = accountId - 1;
