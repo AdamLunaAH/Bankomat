@@ -15,7 +15,7 @@ namespace Bankomat
         // Word key: dep = deposit  bal = balance
         public static void AccountDeposit(int[] accountNr, decimal[] accountBalance)
         {
-            Console.WriteLine("Insättning\n");
+            Console.WriteLine("----------\nInsättning\n----------\n");
             // Visar ett id på de aktiva kontonen som insättningar kan utföras
             for (int i = 0; i < 10; i++)
             {
@@ -30,6 +30,7 @@ namespace Bankomat
                 }
             }
             // Välj det konto som insättningen ska utföras på
+            Console.WriteLine("");
             Console.WriteLine("Välj ID på det konto som insättning ska utföras:");
             String strDepBalId = Console.ReadLine();
             
@@ -57,8 +58,9 @@ namespace Bankomat
                     depBalId = depBalId - 1;
                     Console.WriteLine($"Genomför insättning på kontot med id {depBalId + 1}\nKontonummer: {accountNr[depBalId]}\nSaldo: {accountBalance[depBalId]:F}");
                     Console.WriteLine("Hur mycket ska sättas in:");
-
                     String strDepAmount = Console.ReadLine();
+                    Console.WriteLine("");
+
                     decimal depAmount;
                     Boolean depNumberCheck;
 
@@ -102,7 +104,7 @@ namespace Bankomat
         // Word key: wd = withdraw    bal = balance
         public static void AccountWithdraw(int[] accountNr, decimal[] accountBalance)
         {
-            Console.WriteLine("Uttag\n");
+            Console.WriteLine("----------\nUttag\n----------\n");
             // Visar ett id på de aktiva kontonen som uttag kan utföras
             for (int i = 0; i < 10; i++)
             {
@@ -117,8 +119,9 @@ namespace Bankomat
                 }
             }
             // Välj det konto som uttag ska utföras på
-            Console.WriteLine("Välj ID på det konto som uttag ska utföras:");
+            Console.WriteLine("\nVälj ID på det konto som uttag ska utföras:");
             String strWdBalId = Console.ReadLine();
+            Console.WriteLine("");
             // Validering av input
             if (!String.IsNullOrEmpty(strWdBalId) || !String.IsNullOrWhiteSpace(strWdBalId))
             {
@@ -146,6 +149,7 @@ namespace Bankomat
                     Console.WriteLine("Hur mycket ska tas ut:");
 
                     String strWdAmount = Console.ReadLine();
+                    Console.WriteLine("");
 
                     decimal wdAmount;
                     Boolean wdNumberCheck;

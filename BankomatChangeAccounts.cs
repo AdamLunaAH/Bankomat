@@ -14,7 +14,7 @@ namespace Bankomat
         // Nytt konto
         public static void NewAccount(int[] accountNr, decimal[] accountBalance, DateTime[] accountTime)
         {
-            Console.WriteLine("Nytt konto\n");
+            Console.WriteLine("----------\nNytt konto\n----------\n");
 
             int noEmptyAccountCheck = 0;
             int accountNrTaken = 0;
@@ -35,6 +35,8 @@ namespace Bankomat
                     // Kontonummer
                     Console.WriteLine("Kontonummer:");
                     String strAccountNr = Console.ReadLine();
+                    Console.WriteLine("");
+
                     bool checkAccountNr = int.TryParse(strAccountNr, out int intAccountNr);
 
                     // Kollar om kontonumret redan används
@@ -63,6 +65,8 @@ namespace Bankomat
                     // Här kan man lägga till ett saldo på kontot som skapas
                     Console.WriteLine("Kontosaldo (tryck enter för att sätta in pengar senare):");
                     strAccountBalance = Console.ReadLine();
+                    Console.WriteLine("");
+
 
                     if (string.IsNullOrEmpty(strAccountBalance) || string.IsNullOrWhiteSpace(strAccountBalance))
                     {
@@ -111,7 +115,7 @@ namespace Bankomat
         // tar bort konton som inte finns!!!
         public static void RemoveAccount(int[] accountNr, decimal[] accountBalance, DateTime[] accountTime)
         {
-            Console.WriteLine("Ta bort konto\n");
+            Console.WriteLine("----------\nTa bort konto\n----------\n");
             // Visar ett id på de aktiva kontonen som kan tas bort
             for (int i = 0; i < accountNr.Length; i++)
             {
@@ -127,6 +131,8 @@ namespace Bankomat
             // Välj idet på det konto som ska tas bort
             Console.WriteLine("Välj ID på det konto som ska tas bort:");
             String strDeleteId = Console.ReadLine();
+            Console.WriteLine("");
+
 
 
             if (!String.IsNullOrEmpty(strDeleteId) || !String.IsNullOrWhiteSpace(strDeleteId))

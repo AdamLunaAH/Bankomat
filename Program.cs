@@ -20,7 +20,7 @@ accountBalance[1] = 200.50M;
 accountBalance[2] = 300.23M;
 accountBalance[5] = 600M;
 
-// Tid när kontot skapas 
+// Tid när kontot skapas - sparas i UtcTime
 DateTime[] accountTime = new DateTime[10];
 // Exempeldata
 accountTime[0] = new DateTime(2024, 09, 30, 11, 16, 37);

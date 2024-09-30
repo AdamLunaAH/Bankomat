@@ -14,7 +14,7 @@ namespace Bankomat
         public static void AccountBalance(int[] accountNr, decimal[] accountBalance)
         {
             // For-loop som hämter kontonummer och kontosaldo från konton med data (presenterar bara konton med data (aktiva konton))
-            Console.WriteLine("Kontosaldo\n");
+            Console.WriteLine("----------\nKontosaldo\n----------\n");
             for (int i = 0; i < 10; i++)
             {
 
@@ -38,7 +38,7 @@ namespace Bankomat
         // Kontoinformation - visar mer information som tid så kontot skapdes
         public static void AccountInfo(int[] accountNr, decimal[] accountBalance, DateTime[] accountTime)
         {
-            Console.WriteLine("Kontoinformation\n");
+            Console.WriteLine("----------\nKontoinformation\n----------\n");
             // For-loop som ger idn på de aktiva konton som finns
             for (int i = 0; i < 10; i++)
             {
@@ -55,6 +55,7 @@ namespace Bankomat
             // Välj idet på den konto som mer information ska visas
             Console.WriteLine("Välj ID på det konto som information ska visas:");
             String strAccountId = Console.ReadLine();
+            Console.WriteLine("");
 
             // Validering av input 
             bool accountIdCheck = int.TryParse(strAccountId, out int accountId);
@@ -72,9 +73,10 @@ namespace Bankomat
             // Presenterar informationen för det valda kontot
             if (accountIdCheck == true && accountNr[accountId] > 0)
             {
+                // Konverterar UtcTime till lokal tid
                 DateTime accountTimeLocal = accountTime[accountId].ToLocalTime();
 
-                Console.WriteLine($"Kontoinformation\nKontoID: {strAccountId}\nKontonummer: {accountNr[accountId]}\nSaldo: {accountBalance[accountId]:F}\nDatum då kontot skapdes: {accountTimeLocal}");
+                Console.WriteLine($"----------\nKontoinformation\n----------\nKontoID: {strAccountId}\nKontonummer: {accountNr[accountId]}\nSaldo: {accountBalance[accountId]:F}\nDatum då kontot skapdes: {accountTimeLocal}");
             }
 
             else if (accountIdCheck == true && accountNr[accountId] == 0)
